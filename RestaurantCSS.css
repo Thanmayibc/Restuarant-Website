@@ -1,0 +1,160 @@
+body{
+    margin: 0;
+    background-color: #1a1a2e;
+}
+/*Navigation Bar*/
+#navtab{
+    background-color: #e94560;
+    overflow: hidden;
+}
+.link{
+    text-decoration: none;
+    padding: 24px 16px;
+    text-align: center;
+    color: #1a1a2e;
+    font-size: 25px;
+    font-weight: bold;
+}
+.link:hover{
+    background-color: bisque;
+}
+#about,#contact{
+    border: none;
+    outline: none;
+    background-color: #e94560;
+    padding: 24px 16px;
+    text-align: center;
+    color: black;
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+}
+#about:hover,#contact:hover{
+    background-color: bisque;
+}
+
+/*about and contatc info*/
+#aboutinfo,#contactinfo{
+    margin: 0;
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+    width : 40%;
+    background-color: bisque;
+    color:  #1a1a2e;
+}
+#about.active,#contact.active{
+    background-color: bisque;
+}
+/*Table styling*/
+table{
+    border-collapse: collapse;
+        margin-left: auto;
+        margin-right: auto;
+}
+th,td{
+    border: 6px solid #e94560 ;
+    padding: 20px 25px;
+    color: bisque;
+}
+caption{
+    border: none;
+    width : 200px;
+    padding: 5px 15px;
+    margin-left: 0px;
+    margin-bottom: 6px;
+    margin-top: 6px;
+    font-size: 23px;
+    text-align: center;
+    font-weight: bold;
+    background-color: 1a1a2e;
+    color: bisque;
+}
+th{
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+td{
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+td input,button{
+    border: none;
+    outline: none;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: #1a1a2e;
+    color: bisque;
+}
+td button{
+    cursor: pointer;
+}
+td button:hover,td button:active{
+    background-color: #e94560;
+}
+/*figure and figure caption*/
+figure {
+    padding: 4px;
+    margin: auto;
+  }
+figcaption {
+    background-color: #e94560;
+    color: bisque;
+    font-style: italic;
+    padding: 2px;
+    text-align: center;
+}
+
+
+/*preview*/
+#divbtn,#linkpreview{
+    text-align: center;
+}
+#btn{
+    border: none;
+    outline: none;
+    display: inline-block;
+    width: 90px;
+    padding: 10px 15px;
+    background-color: #e94560;
+    color:  #1a1a2e;
+    margin-right: 15px;
+    cursor: pointer;
+}
+#a,#a1{
+    display: inline-block;
+    width: 90px;
+    padding: 10px 15px;
+    background-color: #e94560;
+    text-decoration: none;
+    text-align: center;
+    color:  #1a1a2e;
+    font-weight: bold;
+}
+#a1{
+    background-color: bisque;
+}
+#a:hover,#btn:active,#btn:hover,#a1:hover{
+    background-color: bisque;
+}
+#linkpreview{
+    float: right;
+}
+
+/*preview styling*/
+#preview{
+    text-align: center;
+}
+#preview ul{
+    display: inline-block;
+}
+#preview li{
+    font-size: 20px;
+    font-weight: bold;
+    background-color: bisque;
+    color: #1a1a2e;
+    padding: 10px 15px;
+}

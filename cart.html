@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Order</title>
+    <link rel="stylesheet" href="cartCSS.css">
+</head>
+<body>
+    <div id="navtab">
+        <a class="link" href="index.html">Home</a>
+    </div>
+    <h1>Here is your Order !</h1>
+    <div id="click"> 
+        <button id="btn1" onclick="orderfn();disablebtn()">Click To View</button>       
+    </div>
+    <table id="bill">
+        <caption>BILL</caption>
+        <tr id="head">
+            <th>S.NO</th>
+            <th>NAME</th>
+            <th>QUANTITY</th>
+            <th>PRICE (In Rupees) (Tax included)</th>
+        </tr>
+    </table>
+    <table id="amount">
+        <tr>
+            <th>Total Amount (In Rupees)</th>
+        </tr>
+    </table>
+    <div id="order"> 
+        <button id="btn" onclick="alertfn()">Place Order</button>       
+    </div>
+</body>
+<script type="text/javascript">
+ /* Disabling button */ 
+ function disablebtn(){
+    var button = document.getElementById("btn1"); 
+    button.disabled = true;
+}
+var amount=0,sum=0;
+
+function orderfn(){
+var keyarr = [];
+var arr = [];
+var amount = [];
+function getquantity(){
+    var quantity = localStorage.getItem("quantity");
+    var key = localStorage.getItem("key");
+     arr = JSON.parse(quantity);
+    keyarr = JSON.parse(key);
+}
+getquantity();
+/*Assigning names to keys*/
+var namearr = keyarr.map(function(i){
+        if(i=='s1')
+            return 'Manchow Soup';
+        if(i=='s2')
+            return 'Baby Corn Manchurian';
+        if(i=='m1')
+            return 'Butter Naan With Curry';
+        if(i=='m2')
+            return 'Veg Pulao';
+        if(i=='d1')
+            return 'Chocolate Milkshake';
+        if(i=='d2')
+            return 'Butterscotch Ice Cream';
+});
+var bill = document.getElementById("bill");
+var pricearr = keyarr.map(function(i){
+        if(i=='s1')
+            return 150;
+        if(i=='s2')
+            return 300;
+        if(i=='m1')
+            return 550;
+        if(i=='m2')
+            return 450;
+        if(i=='d1')
+            return 100;
+        if(i=='d2')
+            return 90;
+});
+for (var i = 0 ; i < arr.length; i++ ) {
+        var tr = document.createElement("tr");
+        var sNo = document.createElement("td");
+        var names = document.createElement("td");
+        var quantity = document.createElement("td");
+        var price = document.createElement("td");
+        
+        var txt1 = document.createTextNode(i+1);
+        sNo.appendChild(txt1);
+        tr.appendChild(sNo);
+        bill.appendChild(tr);
+
+        var txt2 = document.createTextNode(namearr[i]);
+        names.appendChild(txt2);
+        tr.appendChild(names);
+        bill.appendChild(tr);
+
+        var txt3 = document.createTextNode(arr[i]);
+        quantity.appendChild(txt3);
+        tr.appendChild(quantity);
+        bill.appendChild(tr);
+
+        amount[i] = pricearr[i] * arr[i];
+        var txt4 = document.createTextNode(("("+pricearr[i]+" * "+arr[i]+") "+amount[i]));
+        price.appendChild(txt4);
+        tr.appendChild(price);
+        bill.appendChild(tr);
+}
+for(var i=0;i<amount.length;i++){
+    sum = sum + amount[i];
+}
+ amount = document.getElementById("amount");
+var tr = document.createElement("tr");
+var td = document.createElement("td");
+var txt = document.createTextNode(sum);
+td.appendChild(txt);
+tr.appendChild(td);
+amount.appendChild(tr);
+}
+function alertfn(){
+            if(sum>0)
+                alert('Your Order is Placed Successfully!');
+            else
+                alert('You have not selected anything!');
+}
+</script>
+</html>

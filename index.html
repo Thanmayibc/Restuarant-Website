@@ -1,0 +1,151 @@
+<!-- Case Study Question 2 -->
+<!--Design an HTML Page for restaurant business. 
+    Use all the relevant tags wherever required-->
+
+<!-- This is a small illustration of a Restaurant Website. 
+    NOTE : Deletion of items functionality , Validating user input is not added . 
+    To delete/change order , page has to be refreshed and items have to be entered again.
+    Basic Javascript Code is used ( Also , importance to Code optimisation is not given ).
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OLIVE GARDEN</title>
+    <link rel="stylesheet" href="RestaurantCSS.css">
+    <script type="text/javascript">
+        localStorage.clear();
+    </script>
+</head>
+<body>
+        <div id="navtab">
+            <a class="link" href="RestaurantBusiness.html">Home</a>
+            <button  id="about" class="tab" onclick="info(event,'aboutinfo')">About</button>
+            <button id="contact" class="tab" onclick="info(event,'contactinfo')">Contact Us</button>
+            <a class="link"  href="cart.html">Cart</a>
+        </div>
+        <div id="aboutinfo"class="infos">
+            <p><b>Olive Garden</b> Restaurant resides in one of the finest cities - <b>Mysuru.</b></p>
+            <p>We promise that we serve you the <b>best food</b> and provide you the <b>best dining experience.</b></p>
+            <p>Feel free to try out our <b>new specials</b> in the <b>Menu.</b></p>
+        </div>
+        <div id="contactinfo" class="infos">
+            <p><b>Address</b> : #2 Cross,Siddartha Layout, Church Street , Mysuru</p>
+            <p><b>Phone Number</b> : +918456673459</p>
+            <p><b>Email ID</b> : olivegarden123@gmail.com</p>
+        </div>
+        <!--Menu-->
+        <div id="linkpreview">
+            <a id="a1" href="#preview">Go To Preview</a>
+        </div>
+        <table id="start">
+            <caption>STARTERS</caption>
+            <tr>
+                <th>S.NO</th>
+                <th>NAME</th>
+                <th>PRICE (In Rupees)</th>
+                <th>QUANTITY</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td><figure>
+                    <img src="imgs/soup.jpg" alt="Manchow Soup" width="300px">
+                    <figcaption>Manchow Soup</figcaption>
+                </figure>
+                </td>
+                <td>150</td>
+                <td>
+                <input id="s1" type="number" placeholder="YouCanUseScrollButton" name="Manchow Soup"></input>
+                <button id="1" onclick="fn('s1');setquantity();disablebtn('1')">Add To Cart</button>
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td><figure>
+                    <img src="imgs/babycorn.jpg" alt="Baby Corn Manchurian" width="300px">
+                    <figcaption>Baby Corn Manchurian</figcaption>
+                </figure>
+                </td>
+                <td>300</td>
+                <td><input id="s2" type="number" placeholder="YouCanUseScrollButton" name="Baby Corn Manchurian"></input>
+                    <button id="2" onclick="fn('s2');setquantity();disablebtn('2')">Add To Cart</button>
+                </td>
+            </tr>
+        </table>
+        <table id="main">
+            <caption>MAIN COURSE</caption>
+            <tr>
+                <th>S.NO</th>
+                <th>NAME</th>
+                <th>PRICE (In Rupees)</th>
+                <th>QUANTITY</th>
+             </tr>
+             <tr>
+                 <td>1</td>
+                 <td><figure>
+                    <img src="imgs/naann.jpg" alt="Butter Naan" width="300px">
+                    <figcaption>Butter Naan With Curry</figcaption>
+                </figure>
+                </td>
+                 <td>550</td>
+                 <td><input id="m1" type="number" placeholder="YouCanUseScrollButton" name="Butter Naan With Curry"></input>
+                    <button id="3" onclick="fn('m1');setquantity();disablebtn('3')">Add To Cart</button>
+                </td>
+                </tr>
+             <tr>
+                 <td>2</td>
+                 <td><figure>
+                    <img src="imgs/pulao.JPG" alt="Veg Pulao" width="300px">
+                    <figcaption>Veg Pulao</figcaption>
+                 </figure>
+                </td>
+                 <td>450</td>
+                 <td><input id="m2" type="number" placeholder="YouCanUseScrollButton" name="Veg Pulao"></input>
+                    <button id="4" onclick="fn('m2');setquantity();;disablebtn('4')">Add To Cart</button>
+                </td>
+             </tr>
+        </table>
+        <table id="des">
+            <caption>DESSERTS</caption>
+            <tr>
+                <th>S.NO</th>
+                <th>NAME</th>
+                <th>PRICE (In Rupees)</th>
+                <th>QUANTITY</th>
+             </tr>
+            <tr>
+                <td>1</td>
+                <td><figure>
+                    <img src="imgs/shake.jpg" alt="Chocolate Milkshake" width="300px">
+                    <figcaption>Chocolate Milkshake</figcaption>
+                </figure>
+                </td>
+                <td>100</td>
+                <td><input id="d1" type="number" placeholder="YouCanUseScrollButton" name="Chocolate Milkshake"></input>
+                    <button id="5" onclick="fn('d1');setquantity();;disablebtn('5')">Add To Cart</button>
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td><figure>
+                    <img src="imgs/cream.jpg" alt="Butterscotch Ice Cream" width="300px">
+                    <figcaption>Butterscotch Ice Cream</figcaption>
+                </figure>
+                </td>
+                <td>90</td>
+                <td><input id="d2" type="number" placeholder="YouCanUseScrollButton" name="Butterscotch Ice Cream"></input>
+                    <button id="6" onclick="fn('d2');setquantity();;disablebtn('6')">Add To Cart</button>
+                </td>
+            </tr>
+        </table>
+        <br>
+        <div id="divbtn"> 
+            <button id="btn" onclick="preview()">Preview</button>       
+            <a id="a" href="#navtab">Go To Cart</a>
+        </div>
+        <div id="preview">
+        </div>
+    </body>
+<script src="RestaurantJS.js"></script>
+</html>
